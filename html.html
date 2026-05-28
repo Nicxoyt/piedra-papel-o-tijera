@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Piedra Papel o Tijera</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:linear-gradient(135deg,#1e1f22,#2b2d31);
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      color:white;
+      padding:20px;
+    }
+
+    .container{
+      width:420px;
+      background:rgba(43,45,49,0.95);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:28px;
+      padding:35px;
+      text-align:center;
+      backdrop-filter:blur(10px);
+      box-shadow:
+      0 10px 35px rgba(0,0,0,0.45),
+      inset 0 1px 0 rgba(255,255,255,0.03);
+
+      animation:entrada 1s ease;
+    }
+
+    @keyframes entrada{
+      0%{
+        opacity:0;
+        transform:translateY(40px) scale(0.9);
+      }
+
+      100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+    }
+
+    #p{
+      font-size:34px;
+      margin-bottom:25px;
+      color:#ffffff;
+      font-weight:700;
+      letter-spacing:1px;
+      text-shadow:0 0 15px rgba(255,255,255,0.08);
+    }
+
+    .resultado{
+      background:#232428;
+      border-radius:18px;
+      padding:15px;
+      margin-bottom:15px;
+      border:1px solid rgba(255,255,255,0.05);
+
+      transition:0.3s;
+    }
+
+    .resultado:hover{
+      transform:translateY(-2px);
+      background:#2b2d31;
+    }
+
+    #p1{
+      font-size:22px;
+      color:#f2f3f5;
+      font-weight:bold;
+      min-height:30px;
+    }
+
+    #p2{
+      font-size:18px;
+      color:#b5bac1;
+      min-height:25px;
+    }
+
+    .buttons{
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      margin-top:25px;
+    }
+
+    button{
+      padding:16px;
+      border:none;
+      border-radius:16px;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      color:white;
+
+      background:linear-gradient(135deg,#4e545c,#3f434a);
+
+      transition:
+      transform 0.2s,
+      background 0.3s,
+      box-shadow 0.3s;
+
+      box-shadow:0 6px 15px rgba(0,0,0,0.25);
+    }
+
+    button:hover{
+      transform:translateY(-3px) scale(1.02);
+
+      background:linear-gradient(135deg,#646b75,#4d535c);
+
+      box-shadow:0 10px 20px rgba(0,0,0,0.35);
+    }
+
+    button:active{
+      transform:scale(0.98);
+    }
+
+    #a{
+      border-left:5px solid #8e8e8e;
+    }
+
+    #b{
+      border-left:5px solid #c7c7c7;
+    }
+
+    #c{
+      border-left:5px solid #707070;
+    }
+
+    .circulo{
+      position:absolute;
+      width:300px;
+      height:300px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.03);
+      filter:blur(10px);
+      z-index:-1;
+      animation:flotar 6s infinite ease-in-out;
+    }
+
+    .circulo1{
+      top:-100px;
+      left:-100px;
+    }
+
+    .circulo2{
+      bottom:-120px;
+      right:-120px;
+      animation-delay:2s;
+    }
+
+    @keyframes flotar{
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(20px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 500px){
+
+      .container{
+        width:100%;
+        padding:25px;
+        border-radius:22px;
+      }
+
+      #p{
+        font-size:28px;
+      }
+
+      button{
+        font-size:17px;
+        padding:15px;
+      }
+
+      #p1{
+        font-size:20px;
+      }
+
+      #p2{
+        font-size:16px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="circulo circulo1"></div>
+  <div class="circulo circulo2"></div>
+
+  <div class="container">
+
+    <h1 id="p">Piedra Papel o Tijera</h1>
+
+    <div class="resultado">
+      <h1 id="p1"></h1>
+    </div>
+
+    <div class="resultado">
+      <h1 id="p2"></h1>
+    </div>
+
+    <div class="buttons">
+      <button id="a" onclick="verificarA()">🪨 Piedra</button>
+      <button id="b" onclick="verificarB()">📄 Papel</button>
+      <button id="c" onclick="verificarC()">✂️ Tijera</button>
+    </div>
+
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
