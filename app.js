@@ -1,4 +1,10 @@
-let tij=["piedra", "papel", "tijera"]
+let pop=document.getElementById("overlay"); let pop1=document.getElementById("popup");
+pop.style.pointerEvents = "none";
+pop.style.opacity = "0";
+pop1.style.pointerEvents = "none";
+pop1.style.opacity = "0";
+pop1.style.animation = "none";
+let tij=["piedra", "papel", "tijera"];
 let p = document.getElementById("p");
 function verificarA() {
     let op = "piedra"
@@ -14,7 +20,20 @@ function verificarA() {
         if (op === "piedra" && tij[numeroAleatorio] === "piedra") {
         p.textContent = "empate"; 
     }
+    pop.style.pointerEvents = "auto";
+    pop.style.opacity = "1";
+    pop1.style.pointerEvents = "auto";
+    pop1.style.opacity = "1";
+    pop1.style.animation = "popupAnim 0.4s ease";
+    setTimeout(() => {
+        pop.style.opacity = "0"
+        pop.style.pointerEvents = "none"
+        pop1.style.opacity = "0"
+        pop1.style.pointerEvents = "none"
+        pop1.style.animation = "none";
+    }, 2000)
     return;
+
 }
 
 function verificarB() {
@@ -31,6 +50,18 @@ function verificarB() {
         if (op === "papel" && tij[numeroAleatorio] === "papel") {
         p.textContent = "empate"; 
     }
+    pop.style.pointerEvents = "auto";
+    pop.style.opacity = "1";
+    pop1.style.pointerEvents = "auto";
+    pop1.style.opacity = "1";
+    pop1.style.animation = "popupAnim 0.4s ease";
+    setTimeout(() => {
+        pop.style.opacity = "0"
+        pop.style.pointerEvents = "none"
+        pop1.style.opacity = "0"
+        pop1.style.pointerEvents = "none"
+        pop1.style.animation = "none";
+    }, 2000)
     return;
 }
 
@@ -48,5 +79,17 @@ function verificarC() {
         if (op === "tijera" && tij[numeroAleatorio] === "tijera") {
         p.textContent = "empate"; 
     }
+    pop.style.pointerEvents = "auto";
+    pop.style.opacity = "1";
+    pop1.style.pointerEvents = "auto";
+    pop1.style.opacity = "1";
+    pop1.style.animation = "popupAnim 0.4s ease";
+    setTimeout(() => {
+        pop.style.opacity = "0"
+        pop.style.pointerEvents = "none"
+        pop1.style.opacity = "0"
+        pop1.style.pointerEvents = "none"
+        pop1.style.animation = "none";
+    }, 2000)
     return;
 }
